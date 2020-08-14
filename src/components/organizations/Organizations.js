@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 
-
 const ORGANIZATIONS_QUERY = gql`
   {
     organizations {
@@ -18,7 +17,7 @@ class Organizations extends Component {
       return (
         <Query query={ORGANIZATIONS_QUERY}>
           {({ loading, error, data }) => {
-            if (loading) return <div>Fetching..</div>
+            if (loading) return <div>Loading...</div>
             if (error) return <div>Error!</div>
             
             return (

@@ -1,14 +1,27 @@
 import React from 'react';
-import Organizations from './components/Organizations';
+import { 
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom'; 
+import './styles/App.css';
+
+import Homepage from './components/Homepage';
 import Navigation from './components/navigation/Navigation';
-import './App.css';
+import Organizations from './components/organizations/Organizations';
 
 function App() {
   return (
-    <div className="App">
+    <Router>
       <Navigation />
-      <Organizations />
-    </div>
+
+      <div className="Main-container">
+        <Switch>
+          <Route path="/" exact component={Homepage} />
+          <Route path="/organizations" component={Organizations} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
